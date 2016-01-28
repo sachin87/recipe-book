@@ -1,4 +1,12 @@
-Meteor.subscribe('recipes');
+//Meteor.subscribe('recipes');
+
+
+Template.Recipes.onCreated(function() {
+	var self = this;
+	self.autorun(function(){
+		return self.subscribe('recipes');
+	});
+})
 
 Template.Recipes.helpers({
 	recipes: ()=> {
